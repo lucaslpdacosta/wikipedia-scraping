@@ -116,7 +116,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                      #).update_traces(fill='toself')
 
                  ),
-                 html.H2(children='24.77%', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '5em'}),
+                 html.H2(children='24.55%', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '5em'}),
                  html.P(children="É a porcentagem que representa a categoria de eventos mais abundante: Política.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})
              ]),
 
@@ -129,7 +129,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
     html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#E8E8E8', 'width': '50%', 'margin': 'auto', 'border-radius': '10px', 'margin-bottom': '20px'},
              children=[
                  html.H2(children='GRÁFICO DE BARRAS - 2023', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
-                 html.P(children="Optamos usar um gráfico de barras simples referente aos números de ocorrências por mês no ano de 2023. Em seguida, compararemos com os valores do ano passado.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                 html.P(children="Optamos usar um gráfico de barras simples referente aos números de ocorrências por mês no ano de 2023. Em seguida, compararemos com os valores do ano anterior.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  dcc.Graph(
                      id='barras-1',
                      figure=px.bar(
@@ -163,7 +163,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
     html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#E8E8E8', 'width': '50%', 'margin': 'auto', 'border-radius': '10px', 'margin-bottom': '20px'},
              children=[
                  html.H2(children='2023', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '5em'}),
-                 html.P(children="Foi um ano mais agitado, possuindo um quantitativo de 218 eventos - 49 a mais que a contraparte do ano passado, que possui 169.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})
+                 html.P(children="Foi um ano mais agitado, possuindo um quantitativo de 220 eventos - 51 a mais que a contraparte do ano passado, que possui 169.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})
              ]),
 
     html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#242424', 'margin-bottom': '20px'},
