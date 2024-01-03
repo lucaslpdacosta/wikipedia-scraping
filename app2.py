@@ -125,10 +125,10 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                  html.H2(children='INTRODUÇÃO', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
                  html.P(children="O objetivo deste projeto é analisar o sentimento e as tendências nos comentários de um vídeo específico do YouTube. Queremos entender melhor como o público reage ao conteúdo do vídeo, analizando como os sentimentos variam ao longo do tempo. Calculando cada comentário como positivo, negativo ou neutro. E mostrar as palavras mais frequentes nos comentários, o que pode dar insights sobre os tópicos mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.H3(children='TÉCNICAS UTILIZADAS', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
-                 html.P(children="Raspagem de Dados: Usamos a API do YouTube, que fez a coleta dos comentários de um vídeo específico.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
-                 html.P(children="Processamento de Linguagem Natural (NLP): Aplicamos técnicas de NLP, como análise de sentimentos, usando a biblioteca TextBlob que criou uma nuvem de palavras para visualizar os termos mais frequentes nos comentários.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                 html.P(children="Raspagem de Dados: Usamos a API do YouTube(que usa a biblioteca googleapiclient), fazendo a coleta dos comentários de um vídeo específico.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                 html.P(children="Análise de sentimentos: Usamos a biblioteca TextBlob realizar uma análise de sentimento básica nos comentários. Cada comentário é avaliado para determinar sua polaridade (positiva, negativa ou neutra).Também criamos uma nuvem de palavras(utilizando a biblioteca wordcloud) para visualizar os termos mais frequentes nos comentários, e um gráfico(utilizando a biblioteca plotly) que mostra a análise de sentimento dos comentários ao longo do tempo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.H3(children='COLETA E PREPARAÇÃO DOS DADOS', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
-                 html.P(children="API do YouTube: Configuramos a API do YouTube para acessar os comentários, filtrando os dados relevantes.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                 html.P(children="API do YouTube: Configuramos a API do YouTube para acessar os comentários, filtrando os dados relevantes. Ela  coleta de dados brutos usando a API do YouTube. Você fornece o ID do vídeo e especifica a quantidade máxima de comentários que deseja coletar. A API retorna os dados em um formato JSON estruturado, que inclui informações como o texto do comentário e a data de publicação.Os dados brutos (comentários e datas) são armazenados em listas e criamos um DataFrame do Pandas para armazenar esses dados brutos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.P(children="Limpeza dos Dados: Implementamos a remoção de stopwords que fosse retirada algumas palavras e caracteres irrelevantes.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.P(children="Análise de Sentimento: Utilizamos TextBlob para analisar a polaridade dos sentimentos nos comentários.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.H4(children='Distribuição de Sentimentos nos Comentários', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
@@ -153,7 +153,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                         }
                     ),
                     html.H4(children='Nuvem de palavras Mais Comuns nos Comentários', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
-                    html.P(children="A nuvem de palavras destaca as palavras mais frequentes nos comentários. Palavras maiores indicam maior frequência, oferecendo insights sobre os temas mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                    html.P(children="Utilizamos uma nuvem de palavras que destaca as palavras mais frequentes nos comentários. Palavras maiores indicam maior frequência, oferecendo insights sobre os temas mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                     #  Nuvem de Palavras
                     html.Img(src=imagem_nuvem_palavras),
 
@@ -184,9 +184,9 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                             title='Tendência de Sentimentos ao Longo do Tempo', 
                             labels={'y':'Polaridade Média', 'data':'Data'})
                     ),
-                    
+
                     html.H4(children='Conclusão', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
-                    html.P(children="Este projeto nos proporcionou a capacidade de analisar sentimentos e tendências em comentários de vídeos do YouTube. Utilizando técnicas de processamento de linguagem natural, conseguimos identificar a predominância de sentimentos positivos, negativos ou neutros, além de destacar palavras-chave e tendências ao longo do tempo. Essa análise fornece insights valiosos sobre as reações e percepções do público, auxiliando na compreensão e no aprimoramento de estratégias de conteúdo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})                    
+                    html.P(children="Este projeto nos proporcionou a capacidade de analisar sentimentos e tendências em comentários de vídeos do YouTube. Utilizando técnicas de análise de sentimentos, conseguimos identificar a predominância de sentimentos positivos, negativos ou neutros, além de destacar palavras-chave e tendências ao longo do tempo. Essa análise fornece insights valiosos sobre as reações e percepções do público, auxiliando na compreensão e no aprimoramento de estratégias de conteúdo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})                    
              ]),
              
                       ])
