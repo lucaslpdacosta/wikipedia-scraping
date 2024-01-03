@@ -64,6 +64,7 @@ def classificar_sentimento(polaridade):
 
 df_comentarios['sentimento'] = df_comentarios['polaridade'].apply(classificar_sentimento)
 
+# Nuvem de palavras
 def criar_imagem_nuvem_palavras(texto):
     plt.figure(figsize=(10, 5))
     nuvem_palavras = WordCloud(width=800, height=400, background_color='white', stopwords=stop_words).generate(texto)
@@ -82,7 +83,6 @@ texto = " ".join(comentario for comentario in df_comentarios['comentario'])
 
 imagem_nuvem_palavras = criar_imagem_nuvem_palavras(texto)
 
-# Preparação de outras visualizações
 # Removendo stopwords e caracteres especiais
 palavras = [palavra for palavra in texto.split() if palavra.lower() not in stop_words and re.match(r'^[a-zA-Z]+$', palavra)]
 frequencias = Counter(palavras)
@@ -95,13 +95,11 @@ app = Dash(__name__)
 categorias_sentimento = ['negativo', 'neutro', 'positivo']
 sentimento_counts = df_comentarios['sentimento'].value_counts().reindex(categorias_sentimento)
 
-# Verificar os dados (opcional, apenas para depuração)
+
 print(sentimento_counts)
 
-# Cores correspondentes a cada categoria de sentimento
 cores = {'negativo': 'purple', 'neutro': 'pink', 'positivo': 'blue'}
 
-# Criar a lista de dados para o gráfico
 dados_grafico = []
 for categoria in categorias_sentimento:
     dados_grafico.append(
@@ -135,6 +133,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                  html.P(children="Análise de Sentimento: Utilizamos TextBlob para analisar a polaridade dos sentimentos nos comentários.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                  html.H4(children='Distribuição de Sentimentos nos Comentários', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
                  html.P(children="Este gráfico de barras mostra a proporção de comentários positivos, negativos e neutros. Ele oferece uma visão geral do tom emocional dos comentários do vídeo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
+                 # Gráfico de Distribuição de Sentimentos
                  dcc.Graph(
                         id='sentiment-bar-chart',
                         figure={
@@ -157,6 +156,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                     html.P(children="A nuvem de palavras destaca as palavras mais frequentes nos comentários. Palavras maiores indicam maior frequência, oferecendo insights sobre os temas mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                     #  Nuvem de Palavras
                     html.Img(src=imagem_nuvem_palavras),
+
                     html.H4(children='Gráfico de Palavras Mais Frequentes', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
                     html.P(children="Este gráfico de barras exibe as palavras mais frequentes e suas contagens, revelando os termos mais destacados e recorrentes nos comentários.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                     # Gráfico de Palavras Mais Frequentes
@@ -173,6 +173,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                             }
                         }
                     ),
+
                     html.H4(children='Evolução dos Sentimentos ao Longo do Tempo', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
                     html.P(children="Este gráfico de linha traça a variação dos sentimentos (positivo, negativo, neutro) ao longo do tempo, mostrando como as reações do público mudaram no decorrer do tempo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'}),
                     # Tendência de Sentimentos ao Longo do Tempo
@@ -183,6 +184,7 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                             title='Tendência de Sentimentos ao Longo do Tempo', 
                             labels={'y':'Polaridade Média', 'data':'Data'})
                     ),
+                    
                     html.H4(children='Conclusão', style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38', 'font-size': '2em'}),
                     html.P(children="Este projeto nos proporcionou a capacidade de analisar sentimentos e tendências em comentários de vídeos do YouTube. Utilizando técnicas de processamento de linguagem natural, conseguimos identificar a predominância de sentimentos positivos, negativos ou neutros, além de destacar palavras-chave e tendências ao longo do tempo. Essa análise fornece insights valiosos sobre as reações e percepções do público, auxiliando na compreensão e no aprimoramento de estratégias de conteúdo.", style={'fontFamily': 'Arial, sans-serif', 'color': '#232C38'})                    
              ]),
