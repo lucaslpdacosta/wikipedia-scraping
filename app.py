@@ -460,15 +460,6 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                 ]),
             html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#242424', 'margin-bottom': '20px'},
                 children=[
-                    html.H1(children='NUVEM DE PALAVRAS MAIS COMUNS NOS COMENTÁRIOS', style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'}),
-                    html.P(children="Utilizamos uma nuvem de palavras que destaca as palavras mais frequentes nos comentários. Palavras maiores indicam maior frequência, oferecendo insights sobre os temas mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'})
-                ]),
-                    html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#E8E8E8', 'width': '70%', 'margin': 'auto', 'border-radius': '10px', 'margin-bottom': '20px'},
-                children=[
-                    html.Img(src=imagem_nuvem_palavras),
-                ]),
-            html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#242424', 'margin-bottom': '20px'},
-                children=[
                     html.H1(children='GRÁFICO DE PALAVRAS MAIS FREQUENTES', style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'}),
                     html.P(children="Este gráfico de barras exibe as palavras mais frequentes e suas contagens, revelando os termos mais destacados e recorrentes nos comentários.", style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'})
                 ]),
@@ -502,6 +493,15 @@ app.layout = html.Div(style={'background': '#FFFFFF'},
                             title='Tendência de Sentimentos ao Longo do Tempo', 
                             labels={'y':'Polaridade Média', 'data':'Data'})
                     ),
+                ]),
+                 html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#242424', 'margin-bottom': '20px'},
+                children=[
+                    html.H1(children='NUVEM DE PALAVRAS MAIS COMUNS NOS COMENTÁRIOS', style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'}),
+                    html.P(children="Utilizamos uma nuvem de palavras que destaca as palavras mais frequentes nos comentários. Palavras maiores indicam maior frequência, oferecendo insights sobre os temas mais discutidos.", style={'fontFamily': 'Arial, sans-serif', 'color': '#FFFFFF'})
+                ]),
+                    html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#E8E8E8', 'width': '70%', 'margin': 'auto', 'border-radius': '10px', 'margin-bottom': '20px'},
+                children=[
+                    html.Img(src=imagem_nuvem_palavras),
                 ]),
             html.Div(style={'textAlign': 'center', 'padding': '20px', 'background': '#242424', 'margin-bottom': '20px'},
                     children=[
